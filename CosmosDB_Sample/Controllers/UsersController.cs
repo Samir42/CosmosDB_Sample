@@ -20,11 +20,7 @@ namespace CosmosDB_Sample.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser(User userToCreate)
         {
-            for (int i = 1; i < 120; i++)
-            {
-                userToCreate.Id += i.ToString();
-                await _service.AddUserAsync(userToCreate);
-            }
+            await _service.AddUserAsync(userToCreate);
 
             return Ok();
         }
